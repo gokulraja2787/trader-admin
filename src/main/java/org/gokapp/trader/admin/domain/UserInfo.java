@@ -1,7 +1,7 @@
 package org.gokapp.trader.admin.domain;
 
 import java.io.Serializable;
-import java.util.List;
+import java.util.Set;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -27,6 +27,6 @@ public class UserInfo implements Serializable{
 
     @Getter
     @Setter
-    private List<GroupInfo> groupInfo;
+    private Set<GroupInfo> groupInfo;
     
 }

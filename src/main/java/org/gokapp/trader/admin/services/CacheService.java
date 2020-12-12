@@ -1,6 +1,7 @@
 package org.gokapp.trader.admin.services;
 
 import org.gokapp.trader.admin.domain.GroupInfo;
+import org.gokapp.trader.admin.domain.UserInfo;
 
 public interface CacheService {
 
@@ -30,4 +31,17 @@ public interface CacheService {
      * @return
      */
     public GroupInfo getGroup(String id);
+
+    /**
+     * 
+     * @param userInfo
+     */
+    public void putUser(UserInfo userInfo);
+
+    /**
+     * 
+     * @param id
+     * @return
+     */
+    public UserInfo getUser(String id);
 }

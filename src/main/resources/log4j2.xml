@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+    <Appenders>
+        <Console name="LogToConsole" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+        </Console>
+        <RollingFile name="admin-info" fileName="/logs/admin-info.log" filePattern="logs/admin-info%d{yyyy-MM-dd}-%i.log">
+            <PatternLayout>
+                <Pattern>%d{yyyy-MM-dd HH:mm:ss,SSS} %p %c{1.} [%t] %m%n</Pattern>
+            </PatternLayout>
+            <Policies>
+            	<SizeBasedTriggeringPolicy size="15 MB" />
+            </Policies>
+            <DefaultRolloverStrategy max="10" />
+        </RollingFile>
+        <RollingFile name="admin-error" fileName="/logs/admin-error.log" filePattern="logs/admin-error%d{yyyy-MM-dd}-%i.log">
+            <PatternLayout>
+                <Pattern>%d{yyyy-MM-dd HH:mm:ss,SSS} %p %c{1.} [%t] %m%n</Pattern>
+            </PatternLayout>
+            <Policies>
+            	<SizeBasedTriggeringPolicy size="15 MB" />
+            </Policies>
+            <DefaultRolloverStrategy max="10" />
+        </RollingFile>
+    </Appenders>
+    <Loggers>
+        <Logger name="org.gokapp" level="debug" additivity="false">
+            <AppenderRef ref="LogToConsole"/>
+            <AppenderRef ref="admin-info"/>
+        </Logger>
+        <Logger name="org.springframework" level="info" additivity="false">
+            <AppenderRef ref="LogToConsole"/>
+            <AppenderRef ref="admin-info"/>
+        </Logger>
+        <Root level="warn">
+            <AppenderRef ref="LogToConsole"/>
+            <AppenderRef ref="admin-error"/>
+        </Root>
+    </Loggers>
+</Configuration>

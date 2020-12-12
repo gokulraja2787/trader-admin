@@ -1,0 +1,12 @@
+spring:
+  redis:
+    host: traderdb
+    port: 6379
+  security:
+    user:
+      password: user
+server:
+  port: 7070
+  servlet:
+    context-path: /
+
